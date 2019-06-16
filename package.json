@@ -1,0 +1,13 @@
+{
+  "name": "json-server-test",
+  "main": "server.js",
+  "scripts": {
+    "fakeserver": "json-server -p 4000 db.json",
+    "client": "npm run start --prefix client",
+    "dev": "concurrently \"npm run fakeserver\" \"npm run client\""
+  },
+  "dependencies": {
+    "concurrently": "^4.1.0",
+    "json-server": "^0.15.0"
+  }
+}
