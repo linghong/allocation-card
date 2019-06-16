@@ -1,0 +1,201 @@
+.card {
+  width: 85%;
+  margin-left: auto;
+  margin-right: auto;
+  border: 1px solid #fafbfc;
+  text-align: center;
+  border-style: groove;
+  border-radius: 8px;
+}
+
+.card-header {
+  background-color: #4c4f50;
+  text-align: left;
+  justify-content: left;
+  font-size: 16px;
+  color: white;
+  padding: 15px 30px 15px 30px
+}
+
+.card-content {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  background-color: white;
+}
+
+
+/*--------------card-aside --------------*/
+.card-aside{
+  width: 30%;
+  justify-content: center;
+  padding: 1.5%;
+  background-color: #f4f4f3;
+}
+
+.allocation-aside-donut{
+  background-color : white;
+  padding: 50px;
+}
+
+.allocation-aside-call{
+  padding: 50px;
+}
+
+.icon-size-small {
+  font-size: 60px;  /* Preferred icon size */
+}
+
+/*-------------card-main --------------*/
+.allocation-main{
+  display: flex;
+  align-items: stretch;
+  flex-direction: column;
+  width: 70%;
+  text-align: center;
+  padding: 1.5%; 
+}
+
+.allocation-choice {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  height: auto;
+  padding: 15px;
+  background-color: #e3e3e1;
+  border-radius: 2px;
+}
+
+.allocation-choice-item {
+  font-size: 12px;
+}
+
+.allocation-choice-item label{
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.switch-button {
+  background-color: white;
+  padding: 3px;
+  font-size: 20px;
+  color: #2c2c2c;
+  margin-top: 10px;
+
+}
+.button-active {
+  padding: 8px 30px 8px 30px;
+  background-color: #414040;
+  color:white;
+  border-radius: 5px;
+}
+
+.button-inactive {
+  border: none;
+  padding: 8px 30px 8px 30px;
+}
+
+.allocation-table  {
+  width: 100%;
+  font-size: 16px;
+  margin: 10px 0px 10px 0px; 
+  background-color: #eeeeeb;
+}
+
+.allocation-table thead th {
+  background-color: #f2f2eb;
+  height: 40px;
+  padding-left: 20px;
+}
+
+.allocation-table thead th:first-child {
+  text-align: left;
+}
+
+.allocation-table tbody td {
+  background-color: white;
+  height: 50px;
+  padding-left: 20px;
+}
+
+.allocation-table td:first-child {
+  width: 40%;
+  text-align: left;
+}
+
+.allocation-table td:last-child{
+  width: 60%;
+  text-align: center;
+}
+.allocation-table td:last-child span{
+  padding: 10px;
+}
+
+.allocation-table td:last-child input{
+  padding: 10px;
+  width: 30%;
+  text-align: right;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.allocation-summary{
+  margin-bottom: 20px;
+  display: flex;
+  background-color: #f2f2eb;
+  font-size: 16px;
+  padding: 14px;
+  border-radius: 4px;
+
+  margin-top:auto;
+}
+
+.allocation-summary label{
+  padding: 10px 40px 10px 40px;
+}
+
+.allocation-summary-total{
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  width:50%;
+}
+
+.allocation-summary-sum{
+  padding: 10px 40px 10px 40px;
+  background-color: white
+}
+
+.allocation-summary-total{
+  font-weight: 600;
+}
+
+.allocation-summary-control {
+  display: flex;
+  flex-direction: row-reverse;
+  width: 50%; 
+}
+
+.allocation-summary-control button{
+  padding: 10px 60px 10px 60px;
+  font-size: 14px;
+}
+
+.allocation-summary-control label {
+  text-decoration: underline;
+}
+
+/*----------------Others ----------*/
+.round-button {
+  border-radius: 25px;
+  color: white;
+  background-color: #4f5a4e;
+}
+
+.inactive {
+  opacity: 0.3;
+}
+
+
+
+
