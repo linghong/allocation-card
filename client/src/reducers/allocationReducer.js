@@ -13,7 +13,6 @@ export default function allocation (state = defaultState, action) {
         index: action.payload.data
       };
     case UPDATE_ALLOCATIONDATA:
-      console.log("a", action.data)
       return {
         ...state,
         allocation: action.data

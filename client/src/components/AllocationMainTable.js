@@ -35,7 +35,6 @@ class AllocationMainTable extends Component {
   };
 
   handleDataChange = (e) => {
-
     // input type is a string
     let inputVal = e.target.value;
 

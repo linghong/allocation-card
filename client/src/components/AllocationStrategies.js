@@ -3,23 +3,28 @@ import { connect } from 'react-redux';
 
 import { select } from 'd3-selection';
 
-import { createDonut } from './AllocationStrategiesDonut';
+import donut from './AllocationStrategiesDonut';
 
 class AllocationStrategies extends Component {
   componentDidMount () {
     const defaultData = [
       { name: 'default', value: 100 }
     ];
-    createDonut(defaultData, select('#chart'));
+    donut.create(defaultData, '#chart');
   }
 
-  componentDidUpdate () {
-    createDonut(this.props.allocation, select('#chart'));
+  shouldComponentUpdate (nextProps, nectState) {
+    return this.props.allocation !== nextProps.allocation;
+  }
+
+  componentDidUpdate (prevProps, prevState) {
+    donut.destroy('#chart')
+    donut.create(this.props.allocation, '#chart');
   }
 
   render () {
     const { allocation } = this.props;
-    console.log("a", allocation)
+
     return (
       <div className = "allocation-aside">
         <div className = "allocation-aside-donut" id = "chart"></div>

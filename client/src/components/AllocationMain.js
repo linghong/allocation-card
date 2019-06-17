@@ -13,10 +13,6 @@ class AllocationMain extends Component {
     this.props.fetchIndexData();
   }
 
-  componentDidUpdate (prevState, prevProps, snapshot) {
-    console.log("state", this.state);
-  }
-
   shouldComponentUpdate (nextProps, nextState) {
     return nextProps !== this.props || nextState !== this.state;
   }
@@ -81,7 +77,11 @@ class AllocationMain extends Component {
   }
 
   handleFormSubmit = (e) => {
+    // disable the button, when total allocation is not 100
+    if (this.state.sum !== 100) return;
+
     e.preventDefault();
+
     let allocation = [];
     const state = this.state;
     for (let key in state) {
