@@ -14,30 +14,37 @@ class AllocationStrategies extends Component {
   }
 
   componentDidUpdate () {
-    console.log("this.props.allocation", this.props.allocation);
-
-
     createDonut(this.props.allocation, select('#chart'));
   }
 
-  allocationList = <div>List</div>;
-  callAction = <div>icon</div>;
-
   render () {
+    const { allocation } = this.props;
+    console.log("a", allocation)
     return (
       <div className = "allocation-aside">
         <div className = "allocation-aside-donut" id = "chart"></div>
-        <div className = "allocation-aside-call">
-          <i className="material-icons icon-size-small">folder_open</i>
-          <p>Please input desired allocation into available strategies to enable analysis and further actions</p>
-        </div>
+        {
+          allocation.length !== 0
+            ? <div>
+              <ul>
+                { allocation.map(d =>
+                  <li key={d.name}> <span>{d.name}</span><span>{d.value}%</span></li>)}
+              </ul>
+              <button className = "round-button" type="submit" value="Submit" onClick={this.handleFormSubmit}>
+              Conform
+              </button>
+            </div>
+            : <div className = "allocation-aside-call">
+              <i className="material-icons icon-size-small">folder_open</i>
+              <p>Please input desired allocation into available strategies to enable analysis and further actions</p>
+            </div>
+        }
       </div>
     );
   }
 };
 
 function mapStateToProps (state) {
-  console.log("st", state)
   return {
     allocation: state.Index.allocation
   };
