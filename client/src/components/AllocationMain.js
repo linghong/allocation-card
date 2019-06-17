@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 
 import { fetchIndexData, updateAllocationData } from '../actions/index';
 import AllocationMainTable from './AllocationMainTable';
+import { primaryColor, secondaryColor, bcakgroundPrimaryColor, lightSecondaryColor } from '../utils';
 
 class AllocationMain extends Component {
   constructor (props) {
@@ -18,21 +19,21 @@ class AllocationMain extends Component {
     return nextProps !== this.props || nextState !== this.state;
   }
 
-  allocationChoice = (label, left, right) => {
+  allocationChoice = () => {
     return (
       <div className="allocation-choice">
         <div className="allocation-choice-item">
           <label>SURRENDER CHARGE PERIOD </label>
-          <div className="switch-button">
-            <button className="button-active">5-Years</button>
-            <button className="button-inactive">7-Years</button>
+          <div className="switch-button" >
+            <button className="button-active" style = {{ backgroundColor: `${secondaryColor}` }}>5-Years</button>
+            <button className="button-inactive" style={{ color: `${lightSecondaryColor}` }}>7-Years</button>
           </div>
         </div>
         <div className="allocation-choice-item">
           <label>INITIAL PREMIUM</label>
           <div className="switch-button">
             <button className="button-active">$25K-$100K</button>
-            <button className="button-inactive">$100K+</button>
+            <button className="button-inactive" style={{ color: `${lightSecondaryColor}` }}>$100K+</button>
           </div>
         </div>
       </div>
@@ -44,7 +45,7 @@ class AllocationMain extends Component {
     const borderStatus = this.state.sum === 100 ? 'green' : 'red';
     return (
       <div className="allocation-summary">
-        <div className="allocation-summary-total">
+        <div className="allocation-summary-total" style={{ color: `${primaryColor}` }} >
           <div
             className= { `allocation-summary-sum ${borderStatus}`}
             type="number"
@@ -53,16 +54,16 @@ class AllocationMain extends Component {
           </div>
           <label>Total Allocation </label>
         </div>
-        <div className="allocation-summary-control">
-          <label onClick = { this.handleReset }>
+        <div className="allocation-summary-control" style = {{ color: `${primaryColor}` }}>
+          <label style = {{ color: `${primaryColor}` }} onClick = { this.handleReset } >
             Reset
           </label>
           {
             this.state.buttonDisabled
-              ? <button className ={`allocation-summary-conform round-button ${buttonStatus}`} type="submit" value="Submit" disabled onClick={this.handleFormSubmit}>
+              ? <button className ={`allocation-summary-conform round-button ${buttonStatus}`} style = {bcakgroundPrimaryColor} type="submit" value="Submit" disabled onClick={this.handleFormSubmit}>
               Conform
               </button>
-              : <button className ={`allocation-summary-conform   round-button ${buttonStatus}`} type="submit" value="Submit" onClick={this.handleFormSubmit}>
+              : <button className ={`allocation-summary-conform   round-button ${buttonStatus}`} style = {bcakgroundPrimaryColor} type="submit" value="Submit" onClick={this.handleFormSubmit}>
                 Conform
               </button>
           }

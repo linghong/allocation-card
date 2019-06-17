@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { defaultData } from '../utils';
 
 import donut from './AllocationStrategiesDonut';
+import { lightPrimaryColor, primaryColor, bcakgroundPrimaryColor, defaultData } from '../utils';
 
 class AllocationStrategies extends Component {
   componentDidMount () {
@@ -33,17 +33,17 @@ class AllocationStrategies extends Component {
             ? <div className = "allocation-aside-bottom">
               <ul>
                 { allocation.map(d =>
-                  <li key={d.name}>
+                  <li key={d.name} >
                     <div>{d.name}</div>
-                    <div>{d.value}%</div>
+                    <div style = {{ borderLeft: `3px solid ${d.color}`, color: `${primaryColor}` }}>{d.value}%</div>
                   </li>)}
               </ul>
-              <button className = "round-button" type="submit" value="Submit" onClick={this.handleFormSubmit}>
-              Conform
+              <button className = "round-button" type="submit" value="Submit" style = {bcakgroundPrimaryColor} onClick={this.handleFormSubmit}>
+              Submit
               </button>
             </div>
             : <div className = "allocation-aside-call">
-              <i className="material-icons icon-size-small">folder_open</i>
+              <i className="material-icons" style={{ color: `${lightPrimaryColor}` }}>folder_open</i>
               <p>Please input desired allocation into available strategies to enable analysis and further actions</p>
             </div>
         }

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { primaryColor, lightPrimaryColor, lightSecondaryColor } from '../utils';
 
 class AllocationMainTable extends Component {
   constructor (props) {
@@ -20,13 +21,11 @@ class AllocationMainTable extends Component {
         <tr key = { d.name }>
           <td> { d.name } </td>
           <td>
-            <span>{ value }% Cap</span>
-            <span>
-              <input
-                type="text" name={d.name} onChange={this.handleDataChange}
-                value = {`${allocationVal}`}
-              />
-            </span>
+            <span>{ value }%</span><span style= {{ color: `${lightSecondaryColor}` }}>Cap</span>
+            <input
+              type="text" name={d.name} style = {{ border: `1px solid ${lightPrimaryColor}`, color: `${primaryColor}` }} onChange={this.handleDataChange}
+              value = {`${allocationVal}`}
+            />
           </td>
         </tr>
       );
@@ -54,7 +53,7 @@ class AllocationMainTable extends Component {
 
     return (
       <table className="allocation-table">
-        <thead>
+        <thead style = {{ color: primaryColor }}>
           <tr>
             <th>Index Crediting Strategied</th>
             <th>1-Year P2P</th>

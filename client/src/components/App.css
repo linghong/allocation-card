@@ -48,6 +48,11 @@ ul {
   padding: 50px;
 }
 
+.allocation-aside-call .material-icons {
+  color: #7aa4d5;
+  font-size: 55px;
+}
+
 .allocation-aside ul li {
   margin: 5px 0px 5px 0px;
   background-color: white;
@@ -60,12 +65,14 @@ ul {
 
 .allocation-aside ul li div:last-child {
   margin-left: auto;
+  font-weight: 700;
 }
 
 .allocation-aside button {
-  margin-top: 40px;
-  margin-bottom: 40px;
-  padding: 15px 70px 15px 70px;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  padding: 13px 80px 13px 80px;
+  font-size:14px;
 }
 
 /*-------------card-main --------------*/
@@ -150,15 +157,16 @@ ul {
   text-align: center;
 }
 .allocation-table td:last-child span {
-  padding: 10px;
+  padding: 10px 5px 10px 5px;
 }
 
 .allocation-table td:last-child input {
   padding: 10px;
-  width: 30%;
+  width: 20%;
   text-align: right;
-  margin-top: 5px;
-  margin-bottom: 5px;
+  margin: 5px 5px 5px 20px;
+  font-size: 16px;
+  font-weight: 500;
 }
 
 .allocation-summary {
@@ -199,7 +207,7 @@ ul {
 }
 
 .allocation-summary-control button{
-  padding: 10px 60px 10px 60px;
+  padding: 10px 50px 10px 50px;
   font-size: 14px;
 }
 
@@ -211,15 +219,10 @@ ul {
 .round-button {
   border-radius: 25px;
   color: white;
-  background-color: #4f5a4e;
 }
 
 .inactive {
-  opacity: 0.3;
-}
-
-.icon-size-small {
-  font-size: 60px;  /* Preferred icon size */
+  opacity: 0.4;
 }
 
 .red {
