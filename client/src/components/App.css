@@ -222,6 +222,12 @@ ul {
   font-size: 60px;  /* Preferred icon size */
 }
 
+.red {
+  border: 1px solid red;
+}
 
+.green {
+  border: 1px solid green
+}
 
 

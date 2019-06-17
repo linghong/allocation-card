@@ -41,12 +41,12 @@ class AllocationMain extends Component {
 
   allocationSummary = () => {
     const buttonStatus = this.state.sum === 100 ? 'active' : 'inactive';
-    const disable = this.state.disabled;
+    const borderStatus = this.state.sum === 100 ? 'green' : 'red';
     return (
       <div className="allocation-summary">
         <div className="allocation-summary-total">
           <div
-            className="allocation-summary-sum"
+            className= { `allocation-summary-sum ${borderStatus}`}
             type="number"
             name="sum"
           > { `${this.state.sum}%` }
