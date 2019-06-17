@@ -1,13 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { defaultData } from '../utils';
 
 import donut from './AllocationStrategiesDonut';
 
 class AllocationStrategies extends Component {
   componentDidMount () {
-    const defaultData = [
-      { name: 'default', value: 100, color: '#deebf7' }
-    ];
     donut.create(defaultData, '#chart');
   }
 
@@ -17,7 +15,11 @@ class AllocationStrategies extends Component {
 
   componentDidUpdate (prevProps, prevState) {
     donut.destroy('#chart');
-    donut.create(this.props.allocation, '#chart');
+    if (this.props.allocation.length === 0) {
+      donut.create(defaultData, '#chart');
+    } else {
+      donut.create(this.props.allocation, '#chart');
+    }
   }
 
   render () {

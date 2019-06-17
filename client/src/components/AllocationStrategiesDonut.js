@@ -31,7 +31,6 @@ donut.create = (data, el) => {
     .append('path')
     .attr('d', donutArc)
     .attr('fill', function (d, i) {
-      console.log("d",d)
       return d.data.color;
     });
 };
