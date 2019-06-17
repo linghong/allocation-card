@@ -1,4 +1,5 @@
 import React from 'react';
+import AllocationStrategies from './AllocationStrategies';
 import AllocationMain from './AllocationMain';
 
 import './App.css';
@@ -10,6 +11,9 @@ function App () {
         Allocation Strategy
       </header>
       <div className="card-content">
+        <aside className = "card-aside">
+          <AllocationStrategies/>
+        </aside>
         <AllocationMain/>
       </div>
     </div>

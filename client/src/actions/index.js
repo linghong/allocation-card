@@ -29,7 +29,7 @@ export function fetchDataFail (payload) {
   };
 }
 
-export function setAllocationData (data) {
+export function updateAllocationData (data) {
   return {
     type: UPDATE_ALLOCATIONDATA,
     data

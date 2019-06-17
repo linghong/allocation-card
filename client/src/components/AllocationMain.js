@@ -1,30 +1,24 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import Button from '@material-ui/core/Button';
-import ButtonGroup from '@material-ui/core/ButtonGroup';
-
-import { fetchIndexData } from '../actions/index';
+import { fetchIndexData, updateAllocationData } from '../actions/index';
 import AllocationMainTable from './AllocationMainTable';
 
 class AllocationMain extends Component {
   constructor (props) {
     super(props);
     this.state = {
-      index: null,
       sum: 0
     };
     this.props.fetchIndexData();
   }
 
+  componentDidUpdate (prevState, prevProps, snapshot) {
+    console.log("state", this.state);
+  }
+
   shouldComponentUpdate (nextProps, nextState) {
-    if (nextProps !== this.props) {
-      return true;
-    } else if (nextState !== this.state) {
-      return true;
-    } else {
-      return false;
-    }
+    return nextProps !== this.props || nextState !== this.state;
   }
 
   allocationChoice = (label, left, right) => {
@@ -49,6 +43,7 @@ class AllocationMain extends Component {
   }
 
   allocationSummary = () => {
+    const buttonStatus = this.state.sum === 100 ? 'active' : 'inactive';
     return (
       <div className="allocation-summary">
         <div className="allocation-summary-total">
@@ -61,27 +56,45 @@ class AllocationMain extends Component {
           <label>Total Allocation </label>
         </div>
         <div className="allocation-summary-control">
-          <label>
+          <label onClick = { this.handleReset }>
             Reset
           </label>
-          <button className="allocation-summary-conform round-button inactive" type="submit" value="Submit" onSubmit={this.handleFormSubmit}>
+          <button className ={`allocation-summary-conform round-button ${buttonStatus}`} type="submit" value="Submit" onClick={this.handleFormSubmit}>
             Conform
           </button>
         </div>
-        
       </div>
     );
+  }
+
+  onInputChange = (dataObj) => {
+    const sum = Object.keys(dataObj).reduce((sum, key) => sum + parseInt(dataObj[key] || 0), 0);
+    this.setState({ sum, ...dataObj });
+  }
+
+  handleReset = () => {
+    Object.keys(this.state).forEach(key => {
+      let newState = this.state;
+      newState[key] = 0;
+      this.setState(newState);
+    });
+  }
+
+  handleFormSubmit = (e) => {
+    e.preventDefault();
+    this.props.updateAllocationData(this.state);
   }
 
   render () {
     return (
       <form
         className = "allocation-main"
-        onSubmit = { this.handleFormSubmit }
       >
         { this.allocationChoice() }
         <AllocationMainTable
           index = { this.props.index }
+          handleInputChange= { this.onInputChange }
+          allocation={this.state}
         />
         { this.allocationSummary() }
       </form>
@@ -89,4 +102,4 @@ class AllocationMain extends Component {
   }
 }
 
-export default connect(null, { fetchIndexData })(AllocationMain);
+export default connect(null, { fetchIndexData, updateAllocationData })(AllocationMain);
