@@ -6,9 +6,10 @@ import { select, selectAll } from 'd3-selection';
 let donut = {};
 
 donut.create = (data, el) => {
-  var width = 180;
-  var height = 180;
-  var radius = Math.min(width, height) / 2;
+  const margin = 80;
+  const width = document.getElementById('chart').offsetWidth - 2 * margin;
+  const height = width;
+  var radius = width * 0.8 / 2;
 
   var color = scaleOrdinal(schemeCategory10);
   // var color = scaleOrdinal(d3.interpolateGreys(t));
@@ -20,10 +21,8 @@ donut.create = (data, el) => {
     .attr('transform', 'translate(' + (width / 2) +
     ',' + (height / 2) + ')');
 
-  var donutWidth = 50;
-
   var donutArc = arc()
-    .innerRadius(radius - donutWidth)
+    .innerRadius(radius * 0.40)
     .outerRadius(radius);
 
   var donutPie = pie()
