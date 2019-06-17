@@ -95,6 +95,7 @@ class AllocationMain extends Component {
 
     let allocation = [];
     const state = this.state;
+
     for (let key in state) {
       if (state.hasOwnProperty(key) & key !== 'sum' & key !== 'buttonDisabled') {
         allocation.push({ name: key, value: state[key] });

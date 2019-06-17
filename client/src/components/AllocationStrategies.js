@@ -1,14 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import { select } from 'd3-selection';
-
 import donut from './AllocationStrategiesDonut';
 
 class AllocationStrategies extends Component {
   componentDidMount () {
     const defaultData = [
-      { name: 'default', value: 100 }
+      { name: 'default', value: 100, color: '#deebf7' }
     ];
     donut.create(defaultData, '#chart');
   }
