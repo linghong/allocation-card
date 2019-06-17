@@ -13,7 +13,8 @@ class AllocationMainTable extends Component {
       // incase the data is a string, or a number but not a number with two decimal digits.
       const value = parseFloat(d.options[0].value).toFixed(2);
 
-      const allocationVal = this.props.allocation[d.name] !== undefined ? `${this.props.allocation[d.name]}` : '';
+      const { allocation } = this.props;
+      const allocationVal = (allocation[d.name] !== undefined && allocation[d.name] !== 0) ? `${allocation[d.name]}` : '';
 
       return (
         <tr key = { d.name }>

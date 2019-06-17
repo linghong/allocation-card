@@ -8,7 +8,8 @@ class AllocationMain extends Component {
   constructor (props) {
     super(props);
     this.state = {
-      sum: 0
+      sum: 0,
+      buttonDisabled: true
     };
     this.props.fetchIndexData();
   }
@@ -40,6 +41,7 @@ class AllocationMain extends Component {
 
   allocationSummary = () => {
     const buttonStatus = this.state.sum === 100 ? 'active' : 'inactive';
+    const disable = this.state.disabled;
     return (
       <div className="allocation-summary">
         <div className="allocation-summary-total">
@@ -55,9 +57,15 @@ class AllocationMain extends Component {
           <label onClick = { this.handleReset }>
             Reset
           </label>
-          <button className ={`allocation-summary-conform round-button ${buttonStatus}`} type="submit" value="Submit" onClick={this.handleFormSubmit}>
-            Conform
-          </button>
+          {
+            this.state.buttonDisabled
+              ? <button className ={`allocation-summary-conform round-button ${buttonStatus}`} type="submit" value="Submit" disabled onClick={this.handleFormSubmit}>
+              Conform
+              </button>
+              : <button className ={`allocation-summary-conform   round-button ${buttonStatus}`} type="submit" value="Submit" onClick={this.handleFormSubmit}>
+                Conform
+              </button>
+          }
         </div>
       </div>
     );
@@ -65,6 +73,9 @@ class AllocationMain extends Component {
 
   onInputChange = (dataObj) => {
     const sum = Object.keys(dataObj).reduce((sum, key) => sum + parseInt(dataObj[key] || 0), 0);
+    if (sum === 100) {
+      this.setState({ buttonDisabled: false });
+    }
     this.setState({ sum, ...dataObj });
   }
 
@@ -73,13 +84,13 @@ class AllocationMain extends Component {
       let newState = this.state;
       newState[key] = 0;
       this.setState(newState);
+      this.setState({ buttonDisabled: true });
     });
+    document.querySelector('.allocation-summary-conform').disabled = true;
   }
 
   handleFormSubmit = (e) => {
-    // disable the button, when total allocation is not 100
     if (this.state.sum !== 100) return;
-
     e.preventDefault();
 
     let allocation = [];
