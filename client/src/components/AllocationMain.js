@@ -82,7 +82,14 @@ class AllocationMain extends Component {
 
   handleFormSubmit = (e) => {
     e.preventDefault();
-    this.props.updateAllocationData(this.state);
+    let allocation = [];
+    const state = this.state;
+    for (let key in state) {
+      if (state.hasOwnProperty(key) & key !== 'sum') {
+        allocation.push({ name: key, value: state[key] });
+      }
+    }
+    this.props.updateAllocationData(allocation);
   }
 
   render () {

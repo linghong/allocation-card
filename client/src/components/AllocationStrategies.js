@@ -13,6 +13,13 @@ class AllocationStrategies extends Component {
     createDonut(defaultData, select('#chart'));
   }
 
+  componentDidUpdate () {
+    console.log("this.props.allocation", this.props.allocation);
+
+
+    createDonut(this.props.allocation, select('#chart'));
+  }
+
   allocationList = <div>List</div>;
   callAction = <div>icon</div>;
 
@@ -30,9 +37,10 @@ class AllocationStrategies extends Component {
 };
 
 function mapStateToProps (state) {
+  console.log("st", state)
   return {
     allocation: state.Index.allocation
   };
 }
 
-export default AllocationStrategies;
+export default connect(mapStateToProps, null)(AllocationStrategies);
