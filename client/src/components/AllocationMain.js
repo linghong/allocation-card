@@ -86,7 +86,7 @@ class AllocationMain extends Component {
       this.setState(newState);
       this.setState({ buttonDisabled: true });
     });
-    document.querySelector('.allocation-summary-conform').disabled = true;
+    this.props.updateAllocationData([]);
   }
 
   handleFormSubmit = (e) => {
@@ -96,7 +96,7 @@ class AllocationMain extends Component {
     let allocation = [];
     const state = this.state;
     for (let key in state) {
-      if (state.hasOwnProperty(key) & key !== 'sum') {
+      if (state.hasOwnProperty(key) & key !== 'sum' & key !== 'buttonDisabled') {
         allocation.push({ name: key, value: state[key] });
       }
     }

@@ -24,30 +24,52 @@
   background-color: white;
 }
 
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
 
 /*--------------card-aside --------------*/
-.card-aside{
+.card-aside {
   width: 30%;
   justify-content: center;
   padding: 1.5%;
   background-color: #f4f4f3;
 }
 
-.allocation-aside-donut{
+.allocation-aside-donut {
   background-color : white;
   padding: 50px;
 }
 
-.allocation-aside-call{
+.allocation-aside-call {
   padding: 50px;
 }
 
-.icon-size-small {
-  font-size: 60px;  /* Preferred icon size */
+.allocation-aside ul li {
+  margin: 5px 0px 5px 0px;
+  background-color: white;
+  border: 1pm solid #f4f4f3;
+  padding: 10px 5px 10px 5px;
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: row;
+}
+
+.allocation-aside ul li div:last-child {
+  margin-left: auto;
+}
+
+.allocation-aside button {
+  margin-top: 40px;
+  margin-bottom: 40px;
+  padding: 15px 70px 15px 70px;
 }
 
 /*-------------card-main --------------*/
-.allocation-main{
+.allocation-main {
   display: flex;
   align-items: stretch;
   flex-direction: column;
@@ -70,7 +92,7 @@
   font-size: 12px;
 }
 
-.allocation-choice-item label{
+.allocation-choice-item label {
   font-size: 12px;
   font-weight: 700;
 }
@@ -123,15 +145,15 @@
   text-align: left;
 }
 
-.allocation-table td:last-child{
+.allocation-table td:last-child {
   width: 60%;
   text-align: center;
 }
-.allocation-table td:last-child span{
+.allocation-table td:last-child span {
   padding: 10px;
 }
 
-.allocation-table td:last-child input{
+.allocation-table td:last-child input {
   padding: 10px;
   width: 30%;
   text-align: right;
@@ -139,7 +161,7 @@
   margin-bottom: 5px;
 }
 
-.allocation-summary{
+.allocation-summary {
   margin-bottom: 20px;
   display: flex;
   background-color: #f2f2eb;
@@ -161,12 +183,12 @@
   width:50%;
 }
 
-.allocation-summary-sum{
+.allocation-summary-sum {
   padding: 10px 40px 10px 40px;
   background-color: white
 }
 
-.allocation-summary-total{
+.allocation-summary-total {
   font-weight: 600;
 }
 
@@ -194,6 +216,10 @@
 
 .inactive {
   opacity: 0.3;
+}
+
+.icon-size-small {
+  font-size: 60px;  /* Preferred icon size */
 }
 
 

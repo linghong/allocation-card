@@ -14,7 +14,7 @@ class AllocationMainTable extends Component {
       const value = parseFloat(d.options[0].value).toFixed(2);
 
       const { allocation } = this.props;
-      const allocationVal = (allocation[d.name] !== undefined && allocation[d.name] !== 0) ? `${allocation[d.name]}` : '';
+      const allocationVal = (allocation[d.name] && allocation[d.name] !== 0) ? `${allocation[d.name]}` : '';
 
       return (
         <tr key = { d.name }>

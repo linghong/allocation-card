@@ -18,7 +18,7 @@ class AllocationStrategies extends Component {
   }
 
   componentDidUpdate (prevProps, prevState) {
-    donut.destroy('#chart')
+    donut.destroy('#chart');
     donut.create(this.props.allocation, '#chart');
   }
 
@@ -30,10 +30,13 @@ class AllocationStrategies extends Component {
         <div className = "allocation-aside-donut" id = "chart"></div>
         {
           allocation.length !== 0
-            ? <div>
+            ? <div className = "allocation-aside-bottom">
               <ul>
                 { allocation.map(d =>
-                  <li key={d.name}> <span>{d.name}</span><span>{d.value}%</span></li>)}
+                  <li key={d.name}>
+                    <div>{d.name}</div>
+                    <div>{d.value}%</div>
+                  </li>)}
               </ul>
               <button className = "round-button" type="submit" value="Submit" onClick={this.handleFormSubmit}>
               Conform
