@@ -9,10 +9,13 @@ import { primaryColor } from '../utils';
 class AllocationMain extends Component {
   constructor (props) {
     super(props);
+
     this.state = {
-      sum: 0,
-      buttonDisabled: true
+      allocationSum: 0,
+      buttonDisabled: true // when the totall allocation is not 100, submiting data is disabled
     };
+
+    // fetch the index data from faked server
     this.props.fetchIndexData();
   }
 
@@ -21,8 +24,11 @@ class AllocationMain extends Component {
   }
 
   allocationSummary = () => {
-    const buttonStatus = this.state.sum === 100 ? 'active' : 'inactive';
-    const borderStatus = this.state.sum === 100 ? 'green' : 'red';
+    const { allocationSum } = this.state;
+    // when the total allocation on the bottom left turns to 100
+    const buttonStatus = allocationSum === 100 ? 'active' : 'inactive';
+    const borderStatus = allocationSum === 100 ? 'green' : 'red';
+
     return (
       <div className="allocation-summary">
         <div className="allocation-summary-total" style={{ color: primaryColor }} >
@@ -30,7 +36,7 @@ class AllocationMain extends Component {
             className= { `allocation-summary-sum ${borderStatus}`}
             type="number"
             name="sum"
-          > { `${this.state.sum}%` }
+          > { `${allocationSum}%` }
           </div>
           <label>Total Allocation </label>
         </div>
@@ -53,11 +59,12 @@ class AllocationMain extends Component {
   }
 
   onInputChange = (dataObj) => {
-    const sum = Object.keys(dataObj).reduce((sum, key) => sum + parseInt(dataObj[key] || 0), 0);
-    if (sum === 100) {
+    const allocationSum = Object.keys(dataObj).reduce((allocationSum, key) => allocationSum + parseInt(dataObj[key] || 0), 0);
+
+    if (allocationSum === 100) {
       this.setState({ buttonDisabled: false });
     }
-    this.setState({ sum, ...dataObj });
+    this.setState({ allocationSum, ...dataObj });
   }
 
   handleReset = () => {
@@ -65,20 +72,21 @@ class AllocationMain extends Component {
       let newState = this.state;
       newState[key] = 0;
       this.setState(newState);
+
       this.setState({ buttonDisabled: true });
     });
     this.props.updateAllocationData([]);
   }
 
   handleFormSubmit = (e) => {
-    if (this.state.sum !== 100) return;
+    if (this.state.allocationSum !== 100) return;
     e.preventDefault();
 
+    // this data is used to draw the aside chart and list, so only the data for allocation strategy  will send to the reducer,
     let allocation = [];
     const state = this.state;
-
     for (let key in state) {
-      if (state.hasOwnProperty(key) & key !== 'sum' & key !== 'buttonDisabled') {
+      if (state.hasOwnProperty(key) & key !== 'allocationSum' & key !== 'buttonDisabled') {
         allocation.push({ name: key, value: state[key] });
       }
     }
@@ -92,8 +100,8 @@ class AllocationMain extends Component {
       >
         <AllocationMainChoiceToggle />
         <AllocationMainTable
-          index = { this.props.index }
-          handleInputChange= { this.onInputChange }
+          index={ this.props.index }
+          handleInputChange={ this.onInputChange }
           allocation={this.state}
         />
         { this.allocationSummary() }

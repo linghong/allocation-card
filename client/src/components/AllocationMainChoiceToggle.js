@@ -1,3 +1,7 @@
+/*
+* for the top toggle buttons used to select surrender charge and initial premium
+*/
+
 import React, { Component } from 'react';
 
 import { secondaryColor, lightSecondaryColor } from '../utils';
@@ -6,8 +10,8 @@ class AllocationMainChoiceToggle extends Component {
   constructor (props) {
     super(props);
     this.state = {
-      surrenderCharge: true, // when true, the left button is on
-      initialPremium: true // when true, the left button is on
+      surrenderCharge: true, // when true, the left button for surrender charge will be on
+      initialPremium: true // when true, the left button for initial premium will be on
     };
   }
 
@@ -23,6 +27,7 @@ class AllocationMainChoiceToggle extends Component {
     });
   }
 
+  // for the style of the toggle buttons' background color and font color
   getStyle = (target) => {
     let leftStyle;
     let rightStyle;

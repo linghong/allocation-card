@@ -1,3 +1,9 @@
+/*
+* donut chart used to draw the allocation
+* color matches with the color of the correlated list's left-border
+* there are many ways to connect react to d3, here, we just simply destroy the chart before each redraw
+*/
+
 import { pie, arc } from 'd3-shape';
 import { select } from 'd3-selection';
 

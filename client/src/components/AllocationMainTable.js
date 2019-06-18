@@ -11,7 +11,7 @@ class AllocationMainTable extends Component {
   renderRow = (d) => {
     if (d.name && d.options !== undefined && d.options[0] && d.options[0].value !== undefined) {
       // convert it into a string, keeping only 2 decimals
-      // incase the data is a string, or a number but not a number with two decimal digits.
+      // incase the coming data is a string, or a number but not a number with two decimal digits.
       const value = parseFloat(d.options[0].value).toFixed(2);
 
       const { allocation } = this.props;
@@ -38,12 +38,9 @@ class AllocationMainTable extends Component {
     // input type is a string
     let inputVal = e.target.value;
 
-    /* if (inputVal.slice(-1) === '%') {
-      inputVal = e.target.value.slice(0, -1);
-    }s */
     let newState = this.state;
     newState[e.target.name] = parseInt(inputVal);
-    // this.setState(newState);
+
     this.props.handleInputChange(newState);
   };
 

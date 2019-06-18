@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import donut from './AllocationStrategiesDonut';
+import donut from './AllocationAsideDonut';
 import { lightPrimaryColor, primaryColor, defaultData } from '../utils';
 
 class AllocationStrategies extends Component {
@@ -14,7 +14,9 @@ class AllocationStrategies extends Component {
   }
 
   componentDidUpdate (prevProps, prevState) {
+    // this.props.allocation.length === 0, we still need to destroy chart for reset
     donut.destroy('#chart');
+
     if (this.props.allocation.length === 0) {
       donut.create(defaultData, '#chart');
     } else {
@@ -34,8 +36,8 @@ class AllocationStrategies extends Component {
               <ul>
                 { allocation.map(d =>
                   <li key={d.name} >
-                    <div>{d.name}</div>
-                    <div style = {{ borderLeft: `3px solid ${d.color}`, color: primaryColor }}>{d.value}%</div>
+                    <div style = {{ borderLeft: `3px solid ${d.color}` }}>{d.name}</div>
+                    <div style = {{ color: primaryColor }}>{d.value}%</div>
                   </li>)}
               </ul>
               <button className = "round-button" type="submit" value="Submit" style = {{ backgroundColor: primaryColor }} onClick={this.handleFormSubmit}>

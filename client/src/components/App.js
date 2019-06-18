@@ -1,5 +1,5 @@
 import React from 'react';
-import AllocationStrategies from './AllocationStrategies';
+import AllocationStrategies from './AllocationAside';
 import AllocationMain from './AllocationMain';
 import { primaryColor } from '../utils';
 

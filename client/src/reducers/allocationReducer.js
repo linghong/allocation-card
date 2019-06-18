@@ -17,7 +17,9 @@ export default function allocation (state = defaultState, action) {
     case UPDATE_ALLOCATIONDATA:
 
       let data = action.data;
-      let num = data.length | 3;
+
+      // less than 3 the d3 displays error when run the color scheme function.
+      let num = data.length || 3;
       var color = scaleOrdinal(schemeBlues[num]);
 
       let allocation = [];
