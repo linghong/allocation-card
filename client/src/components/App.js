@@ -1,14 +1,14 @@
 import React from 'react';
 import AllocationStrategies from './AllocationStrategies';
 import AllocationMain from './AllocationMain';
-import { bcakgroundPrimaryColor } from '../utils';
+import { primaryColor } from '../utils';
 
 import './App.css';
 
 function App () {
   return (
     <div className="card">
-      <header className="card-header" style = {bcakgroundPrimaryColor}>
+      <header className="card-header" style = {{ backgroundColor: primaryColor }}>
         Allocation Strategy
       </header>
       <div className="card-content">

@@ -23,7 +23,7 @@ class AllocationMainTable extends Component {
           <td>
             <span>{ value }%</span><span style= {{ color: `${lightSecondaryColor}` }}>Cap</span>
             <input
-              type="text" name={d.name} style = {{ border: `1px solid ${lightPrimaryColor}`, color: `${primaryColor}` }} onChange={this.handleDataChange}
+              type="text" name={d.name} style = {{ border: `1px solid ${lightPrimaryColor}`, color: primaryColor }} onChange={this.handleDataChange}
               value = {`${allocationVal}`}
             />
           </td>

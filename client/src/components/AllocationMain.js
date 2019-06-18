@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { fetchIndexData, updateAllocationData } from '../actions/index';
 import AllocationMainTable from './AllocationMainTable';
 import AllocationMainChoiceToggle from './AllocationMainChoiceToggle';
-import { primaryColor, bcakgroundPrimaryColor } from '../utils';
+import { primaryColor } from '../utils';
 
 class AllocationMain extends Component {
   constructor (props) {
@@ -40,10 +40,10 @@ class AllocationMain extends Component {
           </label>
           {
             this.state.buttonDisabled
-              ? <button className ={`allocation-summary-conform round-button ${buttonStatus}`} style = {bcakgroundPrimaryColor} type="submit" value="Submit" disabled onClick={this.handleFormSubmit}>
+              ? <button className ={`allocation-summary-conform round-button ${buttonStatus}`} style = {{ backgroundColor: primaryColor }} type="submit" value="Submit" disabled onClick={this.handleFormSubmit}>
               Conform
               </button>
-              : <button className ={`allocation-summary-conform   round-button ${buttonStatus}`} style = {bcakgroundPrimaryColor} type="submit" value="Submit" onClick={this.handleFormSubmit}>
+              : <button className ={`allocation-summary-conform   round-button ${buttonStatus}`} style = {{ backgroundColor: primaryColor }} type="submit" value="Submit" onClick={this.handleFormSubmit}>
                 Conform
               </button>
           }

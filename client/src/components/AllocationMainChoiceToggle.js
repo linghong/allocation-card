@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
 
 import { secondaryColor, lightSecondaryColor } from '../utils';
-import { getDynamicStyles } from 'jss';
 
 class AllocationMainChoiceToggle extends Component {
-
   constructor (props) {
     super(props);
     this.state = {
@@ -14,7 +12,6 @@ class AllocationMainChoiceToggle extends Component {
   }
 
   toggleSurrenderButton = () => {
-    console.log('111', this.state)
     this.setState({
       surrenderCharge: !this.state.surrenderCharge
     });
