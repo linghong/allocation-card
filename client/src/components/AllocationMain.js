@@ -22,7 +22,9 @@ class AllocationMain extends Component {
       allocationSum: 0,
       buttonDisabled: true // when the totall allocation is not 100, submiting data is disabled
     };
+  }
 
+  componentDidMount () {
     // fetch the index data from faked server
     this.props.fetchIndexData();
   }
