@@ -3,7 +3,8 @@ import { connect } from 'react-redux';
 
 import { fetchIndexData, updateAllocationData } from '../actions/index';
 import AllocationMainTable from './AllocationMainTable';
-import { primaryColor, secondaryColor, bcakgroundPrimaryColor, lightSecondaryColor } from '../utils';
+import AllocationMainChoiceToggle from './AllocationMainChoiceToggle';
+import { primaryColor, bcakgroundPrimaryColor } from '../utils';
 
 class AllocationMain extends Component {
   constructor (props) {
@@ -17,27 +18,6 @@ class AllocationMain extends Component {
 
   shouldComponentUpdate (nextProps, nextState) {
     return nextProps !== this.props || nextState !== this.state;
-  }
-
-  allocationChoice = () => {
-    return (
-      <div className="allocation-choice">
-        <div className="allocation-choice-item">
-          <label>SURRENDER CHARGE PERIOD </label>
-          <div className="switch-button" >
-            <button className="button-active" style = {{ backgroundColor: secondaryColor }}>5-Years</button>
-            <button className="button-inactive" style={{ color: lightSecondaryColor }}>7-Years</button>
-          </div>
-        </div>
-        <div className="allocation-choice-item">
-          <label>INITIAL PREMIUM</label>
-          <div className="switch-button">
-            <button className="button-active" style = {{ backgroundColor: secondaryColor }} >$25K-$100K</button>
-            <button className="button-inactive" style={{ color: lightSecondaryColor }}>$100K+</button>
-          </div>
-        </div>
-      </div>
-    );
   }
 
   allocationSummary = () => {
@@ -110,7 +90,7 @@ class AllocationMain extends Component {
       <div
         className = "allocation-main"
       >
-        { this.allocationChoice() }
+        <AllocationMainChoiceToggle />
         <AllocationMainTable
           index = { this.props.index }
           handleInputChange= { this.onInputChange }
