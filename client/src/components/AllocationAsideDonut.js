@@ -10,8 +10,7 @@ import { select } from 'd3-selection';
 let donut = {};
 
 donut.create = (data, el) => {
-  const margin = 70;
-  const width = document.getElementById('chart').offsetWidth * 0.8;
+  const width = document.getElementById('chart').offsetWidth * 0.8; // use 0.8 to give some room for margin
   const height = width;
   var radius = width * 0.8 / 2;
 

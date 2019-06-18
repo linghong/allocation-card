@@ -21,6 +21,7 @@ class AllocationMainTable extends Component {
       const { allocation } = this.props;
       const allocationVal = (allocation[d.name] && allocation[d.name] !== 0) ? `${allocation[d.name]}` : '';
 
+      // % is added on the input area to avoid to confuse users whether it is the dollar amount or percentage
       return (
         <tr key = { d.name }>
           <td> { d.name } </td>
@@ -28,7 +29,7 @@ class AllocationMainTable extends Component {
             <span>{ value }%</span><span style={{ color: `${lightSecondaryColor}` }}>Cap</span>
             <input
               type="text" name={d.name} style={{ border: `1px solid ${lightPrimaryColor}`, color: primaryColor }} onChange={this.handleDataChange}
-              value={`${allocationVal}`}
+              value={ `${allocationVal}%`}
             />
           </td>
         </tr>
@@ -42,6 +43,8 @@ class AllocationMainTable extends Component {
     // input type is a string
     let inputVal = e.target.value;
 
+    if (inputVal.indexOf('%') === -1) return;
+    inputVal = inputVal.slice(0, -1);
     let newState = this.state;
     newState[e.target.name] = parseInt(inputVal);
 
