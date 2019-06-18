@@ -9,7 +9,6 @@
 }
 
 .card-header {
-  background-color: #4c4f50;
   text-align: left;
   justify-content: left;
   font-size: 16px;
@@ -110,12 +109,10 @@ ul {
   font-size: 20px;
   color: #2c2c2c;
   margin-top: 10px;
-
 }
 .button-active {
   padding: 8px 30px 8px 30px;
-  background-color: #414040;
-  color:white;
+  color: white;
   border-radius: 5px;
 }
 
@@ -132,7 +129,7 @@ ul {
 }
 
 .allocation-table thead th {
-  background-color: #f2f2eb;
+ 
   height: 40px;
   padding-left: 20px;
 }

@@ -25,15 +25,15 @@ class AllocationMain extends Component {
         <div className="allocation-choice-item">
           <label>SURRENDER CHARGE PERIOD </label>
           <div className="switch-button" >
-            <button className="button-active" style = {{ backgroundColor: `${secondaryColor}` }}>5-Years</button>
-            <button className="button-inactive" style={{ color: `${lightSecondaryColor}` }}>7-Years</button>
+            <button className="button-active" style = {{ backgroundColor: secondaryColor }}>5-Years</button>
+            <button className="button-inactive" style={{ color: lightSecondaryColor }}>7-Years</button>
           </div>
         </div>
         <div className="allocation-choice-item">
           <label>INITIAL PREMIUM</label>
           <div className="switch-button">
-            <button className="button-active">$25K-$100K</button>
-            <button className="button-inactive" style={{ color: `${lightSecondaryColor}` }}>$100K+</button>
+            <button className="button-active" style = {{ backgroundColor: secondaryColor }} >$25K-$100K</button>
+            <button className="button-inactive" style={{ color: lightSecondaryColor }}>$100K+</button>
           </div>
         </div>
       </div>
@@ -45,7 +45,7 @@ class AllocationMain extends Component {
     const borderStatus = this.state.sum === 100 ? 'green' : 'red';
     return (
       <div className="allocation-summary">
-        <div className="allocation-summary-total" style={{ color: `${primaryColor}` }} >
+        <div className="allocation-summary-total" style={{ color: primaryColor }} >
           <div
             className= { `allocation-summary-sum ${borderStatus}`}
             type="number"
@@ -54,8 +54,8 @@ class AllocationMain extends Component {
           </div>
           <label>Total Allocation </label>
         </div>
-        <div className="allocation-summary-control" style = {{ color: `${primaryColor}` }}>
-          <label style = {{ color: `${primaryColor}` }} onClick = { this.handleReset } >
+        <div className="allocation-summary-control" style = {{ color: primaryColor }}>
+          <label style = {{ color: primaryColor }} onClick = { this.handleReset } >
             Reset
           </label>
           {
@@ -107,7 +107,7 @@ class AllocationMain extends Component {
 
   render () {
     return (
-      <form
+      <div
         className = "allocation-main"
       >
         { this.allocationChoice() }
@@ -117,7 +117,7 @@ class AllocationMain extends Component {
           allocation={this.state}
         />
         { this.allocationSummary() }
-      </form>
+      </div>
     );
   }
 }
