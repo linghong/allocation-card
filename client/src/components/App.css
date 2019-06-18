@@ -30,7 +30,11 @@ ul {
 }
 
 
-/*--------------card-aside --------------*/
+/*
+=============================
+card-aside 
+=============================
+*/
 .card-aside {
   width: 30%;
   justify-content: center;
@@ -40,7 +44,8 @@ ul {
 
 .allocation-aside-donut {
   background-color : white;
-  padding: 50px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .allocation-aside-call {
@@ -74,7 +79,11 @@ ul {
   font-size:14px;
 }
 
-/*-------------card-main --------------*/
+
+
+/*==================================
+card-main 
+===================================*/
 .allocation-main {
   display: flex;
   align-items: stretch;
@@ -84,6 +93,7 @@ ul {
   padding: 1.5%; 
 }
 
+/*---top: choice toggle---*/
 .allocation-choice {
   display: flex;
   flex-direction: row;
@@ -121,6 +131,8 @@ ul {
   padding: 8px 30px 8px 30px;
 }
 
+
+/*---------middle: table----------*/
 .allocation-table  {
   width: 100%;
   font-size: 16px;
@@ -166,6 +178,8 @@ ul {
   font-weight: 500;
 }
 
+
+/*--------bottom summary ---------*/
 .allocation-summary {
   margin-bottom: 20px;
   display: flex;
@@ -185,16 +199,13 @@ ul {
   display: flex;
   flex-direction: row;
   align-items: flex-start;
+  font-weight: 600;
   width:50%;
 }
 
 .allocation-summary-sum {
   padding: 10px 40px 10px 40px;
   background-color: white
-}
-
-.allocation-summary-total {
-  font-weight: 600;
 }
 
 .allocation-summary-control {
@@ -212,7 +223,11 @@ ul {
   text-decoration: underline;
 }
 
-/*----------------Others ----------*/
+/*
+*==================================
+Can be Shared by projrct-wide base
+===================================
+*/
 .round-button {
   border-radius: 25px;
   color: white;

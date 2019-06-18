@@ -50,13 +50,13 @@ class AllocationMainChoiceToggle extends Component {
         <div className="allocation-choice-item" >
           <label>SURRENDER CHARGE PERIOD </label>
           <div className="switch-button" value="surrenderCharge" onClick= { this.toggleSurrenderButton } >
-            <button className="button-active" style = {surrenderCharge.leftStyle} >5-Years</button>
+            <button className="button-active" style={surrenderCharge.leftStyle} >5-Years</button>
             <button className="button-inactive" style={surrenderCharge.rightStyle}>7-Years</button>
           </div>
         </div>
         <div className="allocation-choice-item">
           <label>INITIAL PREMIUM</label>
-          <div className="switch-button" onClick = {this.togglePremiumButton}>
+          <div className="switch-button" onClick={this.togglePremiumButton}>
             <button className="button-active" style = {initialPremium.leftStyle} >$25K-$100K</button>
             <button className="button-inactive" style={initialPremium.rightStyle}>$100K+</button>
           </div>

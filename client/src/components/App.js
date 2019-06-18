@@ -12,7 +12,7 @@ function App () {
         Allocation Strategy
       </header>
       <div className="card-content">
-        <aside className = "card-aside">
+        <aside className="card-aside">
           <AllocationStrategies/>
         </aside>
         <AllocationMain/>

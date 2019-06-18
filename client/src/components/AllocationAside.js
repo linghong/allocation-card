@@ -43,14 +43,14 @@ class AllocationStrategies extends Component {
                 { allocation.map(d =>
                   <li key={d.name} >
                     <div style = {{ borderLeft: `3px solid ${d.color}` }}>{d.name}</div>
-                    <div style = {{ color: primaryColor }}>{d.value}%</div>
+                    <div style={{ color: primaryColor }}>{d.value}%</div>
                   </li>)}
               </ul>
-              <button className = "round-button" type="submit" value="Submit" style = {{ backgroundColor: primaryColor }} onClick={this.handleFormSubmit}>
+              <button className="round-button" type="submit" value="Submit" style={{ backgroundColor: primaryColor }} onClick={this.handleFormSubmit}>
               Submit
               </button>
             </div>
-            : <div className = "allocation-aside-call">
+            : <div className="allocation-aside-call">
               <i className="material-icons" style={{ color: `${lightPrimaryColor}` }}>folder_open</i>
               <p>Please input desired allocation into available strategies to enable analysis and further actions</p>
             </div>

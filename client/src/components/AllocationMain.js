@@ -41,23 +41,23 @@ class AllocationMain extends Component {
       <div className="allocation-summary">
         <div className="allocation-summary-total" style={{ color: primaryColor }} >
           <div
-            className= { `allocation-summary-sum ${borderStatus}`}
+            className={ `allocation-summary-sum ${borderStatus}`}
             type="number"
             name="sum"
           > { `${allocationSum}%` }
           </div>
           <label>Total Allocation </label>
         </div>
-        <div className="allocation-summary-control" style = {{ color: primaryColor }}>
-          <label style = {{ color: primaryColor }} onClick = { this.handleReset } >
+        <div className="allocation-summary-control" style={{ color: primaryColor }}>
+          <label style={{ color: primaryColor }} onClick={ this.handleReset } >
             Reset
           </label>
           {
             this.state.buttonDisabled
-              ? <button className ={`allocation-summary-conform round-button ${buttonStatus}`} style = {{ backgroundColor: primaryColor }} type="submit" value="Submit" disabled onClick={this.handleFormSubmit}>
+              ? <button className={`allocation-summary-conform round-button ${buttonStatus}`} style={{ backgroundColor: primaryColor }} type="submit" value="Submit" disabled onClick={this.handleFormSubmit}>
               Conform
               </button>
-              : <button className ={`allocation-summary-conform   round-button ${buttonStatus}`} style = {{ backgroundColor: primaryColor }} type="submit" value="Submit" onClick={this.handleFormSubmit}>
+              : <button className={`allocation-summary-conform   round-button ${buttonStatus}`} style={{ backgroundColor: primaryColor }} type="submit" value="Submit" onClick={this.handleFormSubmit}>
                 Conform
               </button>
           }
