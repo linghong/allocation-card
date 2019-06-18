@@ -1,3 +1,9 @@
+/*
+* for the left side column
+* @top part: a donut chart
+* @bottom part: allocation list and a submit button
+* will change the display according to whether it receives allocation data or not
+*/
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 

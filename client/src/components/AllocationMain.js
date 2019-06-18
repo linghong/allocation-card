@@ -1,3 +1,11 @@
+/*
+* components on the right
+* @top: buttons toggle
+* @middle: displays index and a table receive input
+* @bottom: summary and conform the strategery
+* when the input % reaches 100 the button will be inabled, there are also color changes according to that
+*/
+
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 

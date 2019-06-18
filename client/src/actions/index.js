@@ -8,7 +8,7 @@ const FETCH_DATAFAIL = 'FETCH_DATAFAIL';
 // redux-thunk
 export const fetchIndexData = () => async dispatch => {
   try {
-    const res = await axios.get('http:localhost:4000/index');
+    const res = await axios.get('http://localhost:4000/index');
     dispatch(setIndexData(res));
   } catch (err) {
     dispatch(fetchDataFail(err));

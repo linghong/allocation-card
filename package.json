@@ -1,6 +1,7 @@
 {
-  "name": "json-server-test",
+  "name": "allocationcard",
   "main": "server.js",
+  "description": "investment allocation card using a fake data seerver", 
   "scripts": {
     "fakeserver": "json-server -p 4000 db.json",
     "client": "npm run start --prefix client",
